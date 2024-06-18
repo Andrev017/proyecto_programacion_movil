@@ -12,9 +12,9 @@ app.post("/registro", async (req, res) => {
         const { nom_usuaario, apell_usuario, fecha_usuario, contra_usuario } = req.body;
         const dataUser = await prisma.registro.create({
             data: {
-                nom_usuaario,
+                nom_usuaario,   
                 apell_usuario,
-                fecha_usuario: new Date(fecha_usuario),
+                fecha_usuario:fecha_usuario,
                 contra_usuario
             }
         });
