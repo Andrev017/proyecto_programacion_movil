@@ -11,14 +11,14 @@ model Registro {
   id_usuario     Int      @id @default(autoincrement())
   nom_usuaario   String
   apell_usuario  String
-  fecha_usuario  DateTime
+  fecha_usuario  String?
   contra_usuario String
 }
 
 model Crear_evento {
   id_evento       Int               @id @default(autoincrement())
   nom_evento      String
-  fecha_evento    DateTime
+  fecha_evento    String?
   Registro_regalo Registro_regalo[]
 }
 

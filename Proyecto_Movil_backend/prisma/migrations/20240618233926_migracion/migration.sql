@@ -3,7 +3,7 @@ CREATE TABLE "Registro" (
     "id_usuario" SERIAL NOT NULL,
     "nom_usuaario" TEXT NOT NULL,
     "apell_usuario" TEXT NOT NULL,
-    "fecha_usuario" TIMESTAMP(3) NOT NULL,
+    "fecha_usuario" TEXT,
     "contra_usuario" TEXT NOT NULL,
 
     CONSTRAINT "Registro_pkey" PRIMARY KEY ("id_usuario")
@@ -13,7 +13,7 @@ CREATE TABLE "Registro" (
 CREATE TABLE "Crear_evento" (
     "id_evento" SERIAL NOT NULL,
     "nom_evento" TEXT NOT NULL,
-    "fecha_evento" TIMESTAMP(3) NOT NULL,
+    "fecha_evento" TEXT,
 
     CONSTRAINT "Crear_evento_pkey" PRIMARY KEY ("id_evento")
 );
