@@ -13,7 +13,7 @@ app.post("/evento", async (req, res) => {
         const dataUser = await prisma.crear_evento.create({
             data: {
                 nom_evento,
-                fecha_evento: new Date(fecha_evento),
+                fecha_evento: fecha_evento,
             }
         });
         res.json(dataUser);

@@ -16,7 +16,7 @@ const FooterApp = () => {
                     <Image source={require("../../assets/home.png")} style={{ tintColor: iconColor }} />
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.boton} onPress={() => setIconColor2('#815ac0', router.replace("/home/regalos"))}>
+                <TouchableOpacity style={styles.boton} onPress={() => setIconColor2('#815ac0', router.replace("/home/listaEventos"))}>
                     <Image source={require("../../assets/corazon.png")} style={{ tintColor: iconColor2 }} />
                 </TouchableOpacity>
 

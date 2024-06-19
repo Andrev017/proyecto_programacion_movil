@@ -8,8 +8,6 @@ const Regalos = () => {
     const [iconColor, setIconColor] = useState('#000000');
     const [iconColor2, setIconColor2] = useState('#000000');
     const [iconColor3, setIconColor3] = useState('#000000');
-
-
     return (
         <View>
             <ScrollView style={styles.escroll}>

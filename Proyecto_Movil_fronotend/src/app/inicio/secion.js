@@ -1,24 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { router } from 'expo-router';
 
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from 'react-native';
 
 const InicioSecion = () => {
+
+    const [data, setData] = useState({ nom_usuaario: "", contra_usuario: "" });
+
+    const ingresar = async () => {
+        console.log(data);
+        const resepcion = await apiService.fetchData(
+            "POST",
+            "login",
+            data,
+            undefined
+        );
+        if (resepcion.data.message === "Usuario Valido") {
+            router.replace("/home")
+        } else {
+            alert(resepcion.data.message);
+        }
+    };
     return (
         <View style={styles.container}>
-            
+
             <View style={styles.divabajo}>
 
                 <Text style={styles.titulo}>
                     Iniciar Sesión
                 </Text>
-            
+
 
                 <Text style={styles.nom_input}>Nombre</Text>
-                <TextInput style={styles.input}></TextInput>
+                <TextInput style={styles.input}
+                    value={data.nom_usuaario}
+                    onChangeText={(text) =>
+                        setData((old) => ({ ...old, nom_usuaario: text }))}
+                ></TextInput>
 
                 <Text style={styles.nom_input}>Contraseña</Text>
-                <TextInput style={styles.input} secureTextEntry={true}></TextInput>
+                <TextInput style={styles.input} secureTextEntry={true}
+                value={data.contra_usuario}
+                onChangeText={(text) =>
+                    setData((old) => ({ ...old, contra_usuario: text }))}
+                ></TextInput>
 
 
 
@@ -26,9 +51,9 @@ const InicioSecion = () => {
                 <Text></Text>
 
                 <TouchableOpacity style={styles.boton} onPress={() => router.replace("/home")}>
-                        <Text style={{ textAlign: "center", color: "#fff", fontSize: 18 }}>
-                            Iniciar Sesión
-                        </Text>
+                    <Text style={{ textAlign: "center", color: "#fff", fontSize: 18 }}>
+                        Iniciar Sesión
+                    </Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => router.push("/inicio")}>
                     <Text style={styles.sesion}>
@@ -57,23 +82,23 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    titulo:{
+    titulo: {
         fontSize: 28,
         color: "#2D0C40",
         padding: "5%",
     },
-    boton:{
+    boton: {
         backgroundColor: "#0BCE83",
         padding: "3%",
         width: "90%",
         borderRadius: 10,
     },
-    nom_input:{
+    nom_input: {
         padding: "2%",
         color: "#815ac0",
         fontSize: 16,
     },
-    input:{
+    input: {
         backgroundColor: "#0001",
         padding: "2%",
         width: "90%",
