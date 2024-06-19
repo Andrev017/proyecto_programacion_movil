@@ -10,6 +10,7 @@ const AnadirRegalo = () => {
 
   return (
     <View>
+      
       <Text>{evento.nom_evento}</Text>
       <Text>{evento.fecha_evento}</Text>
       <View><AgregarRegalos id={evento.id_evento} /></View>

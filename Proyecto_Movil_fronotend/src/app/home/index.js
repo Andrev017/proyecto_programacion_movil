@@ -24,8 +24,8 @@ const Index = () => {
 
             <View style={styles.perfil}>
                 <Image source={require("../../../assets/perfilHome.png")} style={{color: "#2D0C57",marginHorizontal: 10,}}/>
-                <Text style={{color: "#2D0C57",marginHorizontal: 10,}}>Nombre del Usuario</Text>
-                <TouchableOpacity style={styles.boton} onPress={() => router.push("/home/usuario1")}>
+                <Text style={{color: "#2D0C57",marginHorizontal: 10,}}>Maria Rene Vargas</Text>
+                <TouchableOpacity style={styles.boton} onPress={() => router.push("/home/usuario2")}>
                     <Text style={{ textAlign: "center", color: "#fff", fontSize: 18,  }}>Visitar</Text>
                 </TouchableOpacity>
             </View>

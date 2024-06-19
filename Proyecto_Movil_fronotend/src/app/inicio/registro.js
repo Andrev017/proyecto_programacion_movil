@@ -96,7 +96,7 @@ export const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        backgroundColor: "#f48c06",
+        backgroundColor: "#815ac0",
         position: "relative",
     },
     divabajo: {
@@ -119,14 +119,14 @@ export const styles = StyleSheet.create({
 
     },
     boton: {
-        backgroundColor: "#219ebc",
+        backgroundColor: "#0BCE83",
         padding: "3%",
         width: "90%",
         borderRadius: 10,
     },
     nom_input: {
         padding: "2%",
-        color: "#faa307",
+        color: "#815ac0",
         fontSize: 16,
     },
     input: {
@@ -134,11 +134,11 @@ export const styles = StyleSheet.create({
         padding: "2%",
         width: "90%",
         borderRadius: 20,
-        color: "#faa307",
+        color: "black",
     },
     sesion: {
         padding: "3%",
-        color: "#faa307",
+        color: "#815ac0",
         fontSize: 18,
     }
 })

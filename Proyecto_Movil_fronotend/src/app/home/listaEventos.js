@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, ActivityIndicator, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, TextInput } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import apiService from '../../services/conexion_api';
 import useContextEvento from '../../components/contextEvento';
@@ -68,42 +68,75 @@ const ListaEventos = () => {
 
     return (
         <View>
-            <Text>Lista de Eventos</Text>
+            <Text style={{ color: "#2D0C57", textAlign: "left", fontSize: 28 }}>Lista de Eventos</Text>
+            <Text></Text>
+            <Text></Text>
+            <Text style={{ color: "#815ac0", fontSize: 18, }}>Busqueda de Eventos </Text>
+            <Text></Text>
+
             <View style={{ flexDirection: "row", gap: 10, justifyContent: "center", alignItems: "center" }}>
                 <TextInput
-                    placeholder='DD'
+                    placeholder='Dia'
                     style={{ borderWidth: 1, width: 100, textAlign: "center" }}
                     value={day}
                     onChangeText={setDay}
                 />
                 <TextInput
-                    placeholder='MM'
+                    placeholder='Mes'
                     style={{ borderWidth: 1, width: 100, textAlign: "center" }}
                     value={month}
                     onChangeText={setMonth}
                 />
                 <TextInput
-                    placeholder='AA'
+                    placeholder='Año'
                     style={{ borderWidth: 1, width: 100, textAlign: "center" }}
                     value={year}
                     onChangeText={setYear}
                 />
             </View>
+            <Text></Text>
             {filteredData.length > 0 ? (
                 filteredData.map((eventos) => (
-                    <View key={eventos.id_evento}>
-                        <Text>{eventos.fecha_evento}</Text>
-                        <Text>{eventos.nom_evento}</Text>
-                        <TouchableOpacity onPress={()=>iraPage(eventos)}>
-                            <Text>Ingresar</Text>
-                        </TouchableOpacity>
+                    <View >
+                        <View key={eventos.id_evento} style={styles.content_evento}>
+                            <Text style={styles.nombre}>{eventos.fecha_evento}</Text>
+                            <Text style={styles.nombre}>{eventos.nom_evento}</Text>
+                            <TouchableOpacity onPress={() => iraPage(eventos)} style={styles.boton}>
+                                <Text style={{ textAlign: "center", color: "#fff", fontSize: 18 }}>Ingresar</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <Text></Text>
                     </View>
+
                 ))
             ) : (
                 <Text>No hay eventos disponibles.</Text>
             )}
+
         </View>
     );
 };
+
+export const styles = StyleSheet.create({
+    boton: {
+        backgroundColor: "#0BCE83",
+        padding: "2%",
+        width: "90%",
+        borderRadius: 10,
+        left: 15,
+    },
+    content_evento: {
+        backgroundColor: "#ccc",
+        padding: "2%",
+        width: "95%",
+        borderRadius: 20,
+        left: 10,
+    },
+    nombre: {
+        padding: "1%",
+        color: "#815ac0",
+        fontSize: 16,
+    },
+});
 
 export default ListaEventos;

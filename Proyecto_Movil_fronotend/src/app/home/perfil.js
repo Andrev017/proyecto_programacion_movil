@@ -24,8 +24,8 @@ const Perfil = () => {
 
                 <TouchableOpacity style={styles.boton} onPress={() => router.push("/home/crearEvento")}>
                     <Image style={{ color: "white" }} source={require("../../../assets/añadir_reg.png")} />
-                    <Text style={{ color: "#ffff", fontSize: 16, left: 19, top: 5, }} >Añadir Regalos</Text>
-                    <Image style={{ left: 126, top: 5, }} source={require("../../../assets/flecha_derecha.png")} />
+                    <Text style={{ color: "#ffff", fontSize: 16, left: 19, top: 5, }} >Crear Evento</Text>
+                    <Image style={{ left: 140, top: 5, }} source={require("../../../assets/flecha_derecha.png")} />
                 </TouchableOpacity>
 
                 <Text></Text>

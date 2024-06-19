@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { router } from 'expo-router';
 import apiService from '../services/conexion_api';
 
 const AgregarRegalos = ({ id }) => {
@@ -12,6 +13,7 @@ const AgregarRegalos = ({ id }) => {
     }
     const [data, setData] = useState(datos);
     const [getData, setGetData] = useState([]);
+    const [iconColor3, setIconColor3] = useState('#000000');
 
     const sentData = async () => {
         const precioInt = Number(data.precio)
@@ -47,29 +49,46 @@ const AgregarRegalos = ({ id }) => {
 
     return (
         <View>
-            <Text style={styles.nom_input}>Nombre del evento</Text>
+            <Text style={styles.nom_input}>Nombre del Regalo</Text>
             <TextInput
                 style={styles.input}
                 value={data.descripcion}
                 onChangeText={(text) =>
                     setData((old) => ({ ...old, descripcion: text }))}
             ></TextInput>
+            
+            <Text style={styles.nom_input}>Presio sugerido del regalo</Text>
             <TextInput
                 style={styles.input}
+                placeholder='Bs'
                 value={data.precio}
                 onChangeText={(text) =>
                     setData((old) => ({ ...old, precio: text }))}
             ></TextInput>
+            <Text></Text>
             <TouchableOpacity style={styles.boton} onPress={() => sentData()}>
                 <Text style={{ textAlign: "center", color: "#fff", fontSize: 18 }}>
-                    Registra evento
+                    Añadir Regalo
                 </Text>
             </TouchableOpacity>
+            <Text></Text>
             {getData && getData.map((eventos) => (
-                <View key={eventos.id_evento}>
-                    <Text>{eventos.descripcion}</Text>
-                    <Text>{eventos.precio}</Text>
+                <View key={eventos.id_evento} style={styles.container}>
+                    <Text style={{ color: "#815ac0", fontSize: 15, }}>{eventos.descripcion}</Text>
+                    <Text style={{ color: "#815ac0", fontSize: 14, }}>Precio Sugerido </Text>
+                    <Text style={{ color: "#2D0C57", fontSize: 20, }}>{eventos.precio}Bs</Text>
                     <Text>{eventos.me_gusta}</Text>
+
+                    <View style={styles.grupBoton}>
+                        <TouchableOpacity style={styles.botones} onPress={() => setIconColor3('#ff0000')}>
+                            <Image source={require("../../assets/meGustaCorazon.png")} style={{ position: "absolute", top: "20%", left: "30%", tintColor: iconColor3 }} />
+                        </TouchableOpacity>
+
+                        <Text></Text>
+                        <TouchableOpacity style={styles.boton_comentario} onPress={() => router.push("/home/coment")}>
+                            <Image source={require("../../assets/icono_comentario.png")} style={{ position: "absolute", top: "20%", left: "30%" }} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
             ))}
         </View>
@@ -77,22 +96,12 @@ const AgregarRegalos = ({ id }) => {
     
 }
 export const styles = StyleSheet.create({
+
     container: {
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#f48c06",
-        position: "relative",
+        backgroundColor: "#0001",
+        height: "20%",
     },
-    divabajo: {
-        backgroundColor: "#fff",
-        position: "absolute",
-        bottom: 0,
-        width: "100%",
-        height: "65%",
-        borderRadius: 30,
-        justifyContent: "center",
-        alignItems: "center",
-    },
+
     titulo: {
         fontSize: 28,
         color: "#fff",
@@ -102,15 +111,37 @@ export const styles = StyleSheet.create({
         padding: "30%",
 
     },
+    grupBoton: {
+        flexDirection: 'row',
+        textAlign: "center",
+        justifyContent: "flex-end",
+        top: -50,
+        gap: 5,
+    },
+    botones: {
+        backgroundColor: "#0002",
+        width: "20%",
+        height: "100%",
+        borderRadius: 15,
+        justifyContent: "center",
+    },
+
+    boton_comentario: {
+        backgroundColor: "#0BCE83",
+        width: "20%",
+        height: "100%",
+        borderRadius: 15,
+    },
     boton: {
-        backgroundColor: "#219ebc",
+        backgroundColor: "#0BCE83",
         padding: "3%",
         width: "90%",
         borderRadius: 10,
+        left: 15,
     },
     nom_input: {
         padding: "2%",
-        color: "#faa307",
+        color: "#815ac0",
         fontSize: 16,
     },
     input: {
@@ -118,13 +149,10 @@ export const styles = StyleSheet.create({
         padding: "2%",
         width: "90%",
         borderRadius: 20,
-        color: "#faa307",
+        color: "#815ac0",
+        left: 15,
     },
-    sesion: {
-        padding: "3%",
-        color: "#faa307",
-        fontSize: 18,
-    }
+
 })
 
 export default AgregarRegalos

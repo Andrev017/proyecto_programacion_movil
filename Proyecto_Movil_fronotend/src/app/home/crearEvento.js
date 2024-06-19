@@ -32,6 +32,10 @@ const CrearEvento = () => {
     };
     return (
         <View>
+            <Text style={{ color: "#2D0C57", textAlign: "left", fontSize: 28 }}>Cree el Evento </Text>
+            <Text></Text>
+            <Text></Text>
+
             <Text style={styles.nom_input}>Nombre del evento </Text>
             <TextInput
                 style={styles.input}
@@ -39,8 +43,11 @@ const CrearEvento = () => {
                 onChangeText={(text) =>
                     setData((old) => ({ ...old, nom_evento: text }))}
             ></TextInput>
+            <Text></Text>
+            <Text></Text>
+
             <Text style={styles.nom_input}>Fecha del evento</Text>
-            <View style={{ flexDirection: "row", gap: 10, justifyContent: "center", alignItems: "center"  }}>
+            <View style={{ flexDirection: "row", gap: 10, justifyContent: "center", alignItems: "center" }}>
                 <TextInput
                     placeholder='DD'
                     style={{ borderWidth: 1, width: 100, textAlign: "center" }}
@@ -60,6 +67,11 @@ const CrearEvento = () => {
                     onChangeText={setYear}
                 />
             </View>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+
 
             <TouchableOpacity style={styles.boton} onPress={() => sentData()}>
                 <Text style={{ textAlign: "center", color: "#fff", fontSize: 18 }}>
@@ -71,11 +83,11 @@ const CrearEvento = () => {
     )
 }
 export const styles = StyleSheet.create({
-    container: {
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#f48c06",
-        position: "relative",
+
+    titulo: {
+        fontSize: 28,
+        textAlign: "left",
+        color: "#2D0C57",
     },
     divabajo: {
         backgroundColor: "#fff",
@@ -97,14 +109,15 @@ export const styles = StyleSheet.create({
 
     },
     boton: {
-        backgroundColor: "#219ebc",
+        backgroundColor: "#0BCE83",
         padding: "3%",
         width: "90%",
         borderRadius: 10,
+        left: 15,
     },
     nom_input: {
         padding: "2%",
-        color: "#faa307",
+        color: "#815ac0",
         fontSize: 16,
     },
     input: {
@@ -112,7 +125,8 @@ export const styles = StyleSheet.create({
         padding: "2%",
         width: "90%",
         borderRadius: 20,
-        color: "#faa307",
+        color: "#815ac0",
+        left: 15,
     },
     sesion: {
         padding: "3%",

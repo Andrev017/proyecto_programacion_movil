@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         justifyContent: "center",
         gap: 20,
-
     },
     boton_amigo: {
         backgroundColor: "#0BCE83",
@@ -100,9 +99,8 @@ const styles = StyleSheet.create({
         padding: "2%",
         width: "42%",
         gap: 10,
-
-
     },
+
     img_regalos: {
         width: 140,
         height: 120,
